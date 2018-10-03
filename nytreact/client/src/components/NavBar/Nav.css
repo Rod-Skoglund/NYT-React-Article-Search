@@ -1,0 +1,16 @@
+/* ****************************************************************************** */
+/* Program: NYT React Article Search                                              */
+/* Authors: Rod Skoglund                                                          */
+/* File: (client-src-components-NavBar) Nav.css                                          */
+/* Description: Defines the styles for Nav.js.                                    */
+/* ****************************************************************************** */
+
+.nav-wrapper {
+    background-color: blue;
+    height: auto;
+    /* color: red; */
+}
+
+.nav-element {
+    color: darkred;
+}
