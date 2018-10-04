@@ -48,14 +48,14 @@ mongooseConnection.once('open', function() {
   console.log(`Sucessfully Connected to Mongo DB !`); // If Connection is successful, Console.log(Message)
 });
 
-// var cors = require("cors");
+var cors = require("cors");
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();
 });
-// app.use(cors());
+app.use(cors());
 
 app.use(routes); // Add routes, both API and View
 
