@@ -2,21 +2,19 @@
 // Program: NYT React Article Search
 // Authors: Rod Skoglund
 // File: (client-src-components-SearchForm) SearchForm.js
-// Description: Creates the Search Form React Component.
+// Description: Defines the class used to display the SearchForm component
 // ******************************************************************************
 
 // ******************************************************************************
-// Imports React Component & the Moment Library
+// Imports 
 // ******************************************************************************
-import React, {Component, Fragment} from "react";
+import React, { Component, Fragment } from "react";
 import moment from "moment";
 
-
 // ******************************************************************************
-// Define a new React Class Component. 
+// Class 
 // ******************************************************************************
 export default class SearchForm extends Component {
-
   constructor() {
     super();
     this.state = {
@@ -26,6 +24,10 @@ export default class SearchForm extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   } // End constructor
 
+
+  // ****************************************************************************
+  // handleSumbit method to respond to user action
+  // ****************************************************************************
   handleSubmit(event) {
     event.preventDefault();
 
@@ -42,13 +44,13 @@ export default class SearchForm extends Component {
           ? this.refs.numOfRecords.value
           : 10
       } // End searchParams
-
     }, function() {
+      // alert("new state is " + JSON.stringify(this.state));
       this.props.newQuery(this.state); // Send the Query to Home Component
       this.setState({
         searching: true
       }, () => setTimeout(() => this.setState({searching: null}), 1200));
-    }); // End this.setState - function
+    }); // End this.setState
   } // End handleSubmit
 
   render() {
@@ -62,7 +64,7 @@ export default class SearchForm extends Component {
               <div className="row">
                 <div className="input-field col s12">
                   <i className="material-icons prefix">search</i>
-                  <label for="topic">Topic</label>
+                  <label htmlFor="topic">Topic</label>
                   <input type="text" ref="topic" id="topic" required="required" className="validate"/>
                 </div>
               </div>
@@ -82,7 +84,7 @@ export default class SearchForm extends Component {
               <div className="row">
                 <div className="input-field col s12">
                   <i className="material-icons prefix">date_range</i>
-                  <label for="startYear">Start Year (Optional)</label>
+                  <label htmlFor="startYear">Start Year (Optional)</label>
                   <input type="text" ref="startYear" className="datepicker" id="startYear"/>
                 </div>
               </div>
@@ -90,7 +92,7 @@ export default class SearchForm extends Component {
               <div className="row">
                 <div className="input-field col s12">
                   <i className="material-icons prefix">date_range</i>
-                  <label for="endYear">End Year (Optional)</label>
+                  <label htmlFor="endYear">End Year (Optional)</label>
                   <input type="date" ref="endYear" className="datepicker" id="endYear"/>
                 </div>
               </div>
@@ -150,7 +152,7 @@ export default class SearchForm extends Component {
                           </div>
                         </div>
                       </div>)
-                      : (<button className="btn blue darken-4 waves-effect waves-light right" type="submit" name="action">Submit
+                      : (<button className="btn cyan waves-effect waves-light right" type="submit" name="action">Submit
                         <i className="mdi-content-send right"></i>
                       </button>)
                   }
@@ -164,5 +166,4 @@ export default class SearchForm extends Component {
 
     </Fragment>); // End return
   } // End render
-
 } // End class

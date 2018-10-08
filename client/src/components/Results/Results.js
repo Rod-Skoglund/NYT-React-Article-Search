@@ -2,40 +2,33 @@
 // Program: NYT React Article Search
 // Authors: Rod Skoglund
 // File: (client-src-components-NavBar) Nav.js
-// Description: Creates the Results React Component.
+// Description: Defines the class used to display the Nav component
 // ******************************************************************************
 
 // ******************************************************************************
-// Imports React, IndividualResult Component. 
+// Imports 
 // ******************************************************************************
 import React, {Component} from "react";
-
 import IndividualResult from "../IndividualResult";
 
 // ******************************************************************************
-// Define a new React Class Component. 
+// Class 
 // ******************************************************************************
 export default class Results extends Component {
-  constructor(props) {
-    super(props);
-  } //End constructor
 
   render() {
     let articleResults = [];
 
     if(this.props.results.articles.length > 0 ){
-
-      // console.log(JSON.stringify(this.props.results.articles))
+      console.log(JSON.stringify(this.props.results.articles))
       articleResults = this.props.results.articles.map(article => {
-
         return(
           <IndividualResult title={article.title} url={article.url} date={article.date} id={article.articleId} key={article.articleId}
             image={`${article.image? "https://static01.nyt.com/"+ article.image.url : "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/450px-No_image_available.svg.png" }`}
           />
-        ) // End return
-      }) // End articleResults map
-
-    } // End if articles length
+        ) //End return
+      }); //End articleResults mapping
+    } //End if (this.props.results.articles.length > 0)
 
     return (
       <div>
@@ -54,6 +47,6 @@ export default class Results extends Component {
           </div>
         ) : <div></div>}
       </div>
-    ) // End return
+    ); //End return
   } // End render
 } // End class

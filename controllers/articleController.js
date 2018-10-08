@@ -1,17 +1,17 @@
 // ******************************************************************************
 // Program: NYT React Article Search
 // Authors: Rod Skoglund
-// File: (controllers) articlesController.js
-// Description: Defining methods for the articlesController.
+// File: (controlellers) articleController.js
+// Description: Defines the methods used to interact with articles
 // ******************************************************************************
 
 // ******************************************************************************
-// Require/link to the DB Models/Schema
+// Imports 
 // ******************************************************************************
-const db = require("../models");
+let db = require("../models"); // Require all models
 
 // ******************************************************************************
-// Defining methods for the articlesController
+// Methods for Article Controller 
 // ******************************************************************************
 module.exports = {
   save:  function(req, res){

@@ -2,17 +2,17 @@
 // Program: NYT React Article Search
 // Authors: Rod Skoglund
 // File: (client-src-components-IndividualResult) IndividualResult.js
-// Description: Define the new React component to manage Individual Articles.
+// Description: Defines the class used to display and save individual articles
 // ******************************************************************************
 
 // ******************************************************************************
-// Imports React Component and the (utils) API.js. 
+// Imports 
 // ******************************************************************************
 import React, {Component} from "react";
 import API from '../../utils/API';
 
 // ******************************************************************************
-// Define a new React Class Component. 
+// Class 
 // ******************************************************************************
 export default class IndividualResult extends Component {
 
@@ -22,21 +22,21 @@ export default class IndividualResult extends Component {
       saved: null
     }
     this.save = this.save.bind(this);
-  }; // End constructor
+  }; // End Constructor
 
   save(){
     console.log("Saved Article Clicked")
-    let indRes = this;
+    let that = this;
     API.saveArticle({
       articleId : this.props.id,
       url: this.props.url ,
       title: this.props.title,
       date : this.props.date,
       image : this.props.image
-    }).then(indRes.setState({
+    }).then(that.setState({
       saved: true
     }));
-  }; // End save
+  } //End save
 
   render() {
     return (
@@ -54,7 +54,6 @@ export default class IndividualResult extends Component {
           (<button style={{"margin-top" : "10px"}} id={this.props.id} onClick={this.save} className="btn btn-success right-align"> Save </button>)
         }
       </li>
-
     ); // End return
   } // End render
 } // End class

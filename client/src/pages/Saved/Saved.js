@@ -1,22 +1,18 @@
 // ******************************************************************************
 // Program: NYT React Article Search
 // Authors: Rod Skoglund
-// File: (src-pages-Saved) Saved.js
-// Description: Creates the Saved Page React Component.
+// File: (client-src-pages-Saved) Saved.js
+// Description: Defines the class used to display the Saved page
 // ******************************************************************************
 
 // ******************************************************************************
-// Imports React Component & compnents/utilities
+// Imports 
 // ******************************************************************************
 import React, { Component } from "react";
-// import React, { Component, Fragment } from "react";
 import API from '../../utils/API';
 import SavedResult from '../../components/SavedResult';
 import Nav from '../../components/NavBar';
 
-// ******************************************************************************
-// Define a new React Class Component. 
-// ******************************************************************************
 class Saved extends Component {
 
   constructor(props){
@@ -26,7 +22,7 @@ class Saved extends Component {
       articles : null
     }
     this.onDelete = this.onDelete.bind(this);
-  } // End constructor
+  }
 
   onDelete(id){
     API.deleteSavedArticle(id).then((resArticles) =>{
@@ -37,31 +33,35 @@ class Saved extends Component {
                   return(
                   <SavedResult date={eachArticle.date} key={eachArticle.articleId} articleId={eachArticle.articleId}
                     url={eachArticle.url} title={eachArticle.title} image={eachArticle.image} onDelete={this.onDelete}/>
-                  );
-                }) // End articles map
-      }) // End this.state articles
+                  ); // End return
+                }) //End articles mapping
+      }) // End this.setState
 
-    }); // End deleSavedArticle then
+    }); // End API.deleteSavedArticle(id).then
   } // End onDelete
 
   componentDidMount(){
+
     API.getSavedArticles().then((savedArticles) => {
 
-      let articles = savedArticles.data;
+      let articles = savedArticles.data; // Array
 
       this.setState({
         articles:  articles.map(eachArticle => {
                   return(
                   <SavedResult date={eachArticle.date} key={eachArticle.articleId} articleId={eachArticle.articleId}
                     url={eachArticle.url} title={eachArticle.title} image={eachArticle.image} onDelete={this.onDelete}/>
-                  );
-                }) // End articles map
-      }); // End this.state articles
+                  ); // End return
+                }) //End articles mapping
+      }); // End this.setState
 
     }).then(this.setState({savedArticles: true}));
-  } // EndcomponentDidMount
+
+  } // End componentDidMount
+
 
   render() {
+
     return (
       <div>
       <Nav/>
@@ -135,9 +135,8 @@ class Saved extends Component {
         }
       </div>
     </div>
-    ); //End return
+    ); // End return
   } // End render
-
 } // End class
 
 export default Saved;

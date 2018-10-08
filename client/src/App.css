@@ -1,11 +1,9 @@
 /* ****************************************************************************** */
 /* Program: NYT React Article Search                                              */
 /* Authors: Rod Skoglund                                                          */
-/* File: (client-src) app.css                                                     */
-/* Description: Defines the styles for the app.js. This was provided by the       */
-/*              create-react-app utility.                                         */
+/* File: (client-src) App.css                                                     */
+/* Description: Defines the styles used to display App routing                    */
 /* ****************************************************************************** */
-
 .App {
   text-align: center;
 }

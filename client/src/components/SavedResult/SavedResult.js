@@ -2,33 +2,31 @@
 // Program: NYT React Article Search
 // Authors: Rod Skoglund
 // File: (client-src-components-SavedResult) SavedResult.js
-// Description: Creates the Saved Result React Component.
+// Description: Defines the class used to display the SavedResult component
 // ******************************************************************************
 
 // ******************************************************************************
-// Imports React Component. 
+// Imports 
 // ******************************************************************************
 import React, {Component} from "react";
 
 // ******************************************************************************
-// Define a new React Class Component. 
+// Class 
 // ******************************************************************************
-export default class SavedResult extends Component {
-
+export default class IndividualResult extends Component {
   constructor(){
     super();
     this.state={
       deleted: null
     }
     this.delete = this.delete.bind(this);
-  } // End constructor
-
+  }; // End constructor
 
   delete(){
     this.setState({deleted: true}, () => {
       this.props.onDelete(this.props.articleId);
     })
-  }
+  } // End delete
 
   render() {
     return (
@@ -46,7 +44,6 @@ export default class SavedResult extends Component {
           (<button style={{"margin-top" : "10px"}} id={this.props.id} onClick={this.delete} className="btn btn-success right-align"> Delete </button>)
         }
       </li>
-    ) // End return
+    ); // End return
   } // End render
-
 } // End class

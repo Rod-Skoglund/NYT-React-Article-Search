@@ -1,10 +1,9 @@
 // ******************************************************************************
 // Program: NYT React Article Search
 // Authors: Rod Skoglund
-// File: (models, article) index.js
-// Description: Exports an Object Containing all Models
+// File: (models) index.js
+// Description: Exports the article model.
 // ******************************************************************************
-
 module.exports = {
   Article: require("./article")
 };

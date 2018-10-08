@@ -2,7 +2,7 @@
 // Program: NYT React Article Search
 // Authors: Rod Skoglund
 // File: (models) article.js
-// Description: Defines the mongo/mongoose article schema.
+// Description: Defines the Article Schema (Mongo/Mongoose)
 // ******************************************************************************
 
 // ******************************************************************************
@@ -11,12 +11,12 @@
 const mongoose = require("mongoose");
 
 // ******************************************************************************
-// Initialize Schema
+// Initialize 
 // ******************************************************************************
 const Schema = mongoose.Schema;
 
 // ******************************************************************************
-// Define Article Schema
+// Article Schema 
 // ******************************************************************************
 const articleSchema = new Schema({
   title: {type: String, require: true},
@@ -26,10 +26,9 @@ const articleSchema = new Schema({
   articleId: {type: String, require: true},
 });
 
-// Create model from the above schema, using mongoose's model method
-const Article = mongoose.model("Article", articleSchema); 
+// ******************************************************************************
+// Create the model from the above schema, using mongoose's model method
+// ******************************************************************************
+const Article = mongoose.model("Article", articleSchema);
 
-// ******************************************************************************
-// Export 
-// ******************************************************************************
 module.exports = Article;

@@ -1,13 +1,12 @@
 // ******************************************************************************
 // Program: NYT React Article Search
 // Authors: Rod Skoglund
-// File: (src-util) app.js
-// Description: Defines the methods to retrieve data from NYT and the 
-//              mongo/mongoose article schema.
+// File: (client-src) App.js
+// Description: Handles application routing
 // ******************************************************************************
 
 // ******************************************************************************
-// Import React & Page Components. 
+// Imports 
 // ******************************************************************************
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from "react-router-dom";
@@ -16,7 +15,7 @@ import Home from './pages/Home';
 import Saved from './pages/Saved';
 
 // ******************************************************************************
-// Add the app React Component to handle routing. 
+// Class 
 // ******************************************************************************
 class App extends Component {
 
@@ -30,8 +29,8 @@ class App extends Component {
             </switch>
           </Router>
       </div>
-    );
-  }
-}
+    ); // End return
+  } // End render
+} // End class
 
 export default App

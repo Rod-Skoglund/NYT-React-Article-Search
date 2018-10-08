@@ -2,7 +2,6 @@
 // Program: NYT React Article Search
 // Authors: Rod Skoglund
 // File: (client-src-pages-Saved) index.js
-// Description: Exports an Object Containing all Models
+// Description: Exports the Saved page.
 // ******************************************************************************
-
 export { default } from "./Saved";
